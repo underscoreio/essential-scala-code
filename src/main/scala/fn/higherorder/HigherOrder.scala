@@ -1,10 +1,42 @@
 package fn.higherorder
 
+sealed trait IntOption
+
+final case class IntSome(value: Int) extends IntOption
+
+case object IntNone extends IntOption
+
 sealed trait IntList {
   def exists(func: Int => Boolean): Boolean =
     this match {
-      case IntPair(head, tail) => func(head) || tail.exists(func)
-      case IntNil              => false
+      case IntPair(head, tail) =>
+        func(head) || tail.exists(func)
+
+      case IntNil => false
+    }
+
+  def filter(func: Int => Boolean): IntList =
+    this match {
+      case IntPair(head, tail) =>
+        if(func(head)) {
+          IntPair(head, tail.filter(func))
+        } else {
+          tail.filter(func)
+        }
+
+      case IntNil => IntNil
+    }
+
+  def find(func: Int => Boolean): IntOption =
+    this match {
+      case IntPair(head, tail) =>
+        if(func(head)) {
+          IntSome(head)
+        } else {
+          tail.find(func)
+        }
+
+      case IntNil => IntNone
     }
 }
 

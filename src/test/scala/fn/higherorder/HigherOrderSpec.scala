@@ -11,4 +11,16 @@ class HigherOrderSpec extends FlatSpec with Matchers {
     ints.exists(_ % 2 == 0) should equal(false)
     ints.exists(_ % 2 == 1) should equal(true)
   }
+
+  "intList.filter" should "work as expected" in {
+    ints.filter(_ > 0) should equal(ints)
+    ints.filter(_ < 0) should equal(IntNil)
+    ints.filter(_ > 3) should equal(IntPair(5, IntNil))
+  }
+
+  "intList.find" should "work as expected" in {
+    ints.find(_ > 0) should equal(IntSome(1))
+    ints.find(_ < 0) should equal(IntNone)
+    ints.find(_ > 3) should equal(IntSome(5))
+  }
 }
