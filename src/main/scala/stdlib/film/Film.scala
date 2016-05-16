@@ -1,12 +1,22 @@
 package stdlib.film
 
+final case class Director(
+  firstName: String,
+  lastName: String,
+  yearOfBirth: Int,
+  films: Seq[Film]
+) {
+  def name: String =
+    s"$firstName $lastName"
+}
+
 final case class Film(
   name: String,
   yearOfRelease: Int,
   imdbRating: Double
 )
 
-object Film {
+object TestData {
   val memento           = new Film("Memento", 2000, 8.5)
   val darkKnight        = new Film("Dark Knight", 2008, 9.0)
   val inception         = new Film("Inception", 2010, 8.8)
@@ -21,4 +31,100 @@ object Film {
   val dieHard           = new Film("Die Hard", 1988, 8.3)
   val huntForRedOctober = new Film("The Hunt for Red October", 1990, 7.6)
   val thomasCrownAffair = new Film("The Thomas Crown Affair", 1999, 6.8)
+
+  val eastwood = new Director("Clint", "Eastwood", 1930,
+    Seq(highPlainsDrifter, outlawJoseyWales, unforgiven, granTorino, invictus))
+
+  val mcTiernan = new Director("John", "McTiernan", 1951,
+    Seq(predator, dieHard, huntForRedOctober, thomasCrownAffair))
+
+  val nolan = new Director("Christopher", "Nolan", 1970,
+    Seq(memento, darkKnight, inception))
+
+  val someGuy = new Director("Just", "Some Guy", 1990,
+    Seq())
+
+  val directors = Seq(someGuy, mcTiernan, nolan, eastwood)
+}
+
+object TestMethods {
+  import TestData.directors
+
+  def directorsWithBackCatalogOfSize(numberOfFilms: Int): Seq[Director] =
+    directors.filter(_.films.length >= numberOfFilms)
+
+  def directorsBornBefore(year: Int): Seq[Director] =
+    directors.filter(_.yearOfBirth < year)
+
+  def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): Seq[Director] =
+    directors
+     .filter(_.yearOfBirth < year)
+     .filter(_.films.length >= numberOfFilms)
+
+  def directorsSortedByAge(ascending: Boolean = true) =
+    directors.sortWith { (a, b) =>
+      if(ascending) {
+        a.yearOfBirth < b.yearOfBirth
+      } else {
+        a.yearOfBirth > b.yearOfBirth
+      }
+    }
+
+  def namesOfFilmsByNolan: Seq[String] =
+    directors
+      .find(_.lastName == "Nolan")
+      .map(_.films.map(_.name))
+      .getOrElse(Seq.empty)
+
+  def namesOfAllFilmsByAllDirectors: Seq[String] =
+    directors
+      .flatMap(_.films.map(film => film.name))
+
+  def earliestFilmsByAllDirectors: Map[Director, Option[Film]] =
+    for {
+      (director, films) <- directors.map(d => d -> d.films).toMap
+      earliest           = films
+                             .sortWith((a, b) => a.yearOfRelease < b.yearOfRelease)
+                             .headOption
+    } yield (director -> earliest)
+
+
+  def allFilmsSortedByImdb: Seq[Film] =
+    directors
+      .flatMap(_.films)
+      .sortWith((a, b) => a.imdbRating > b.imdbRating)
+
+  def averageImdbRating: Double = {
+    val films = directors.flatMap(_.films)
+    films.foldLeft(0.0)(_ + _.imdbRating) / films.length
+  }
+
+  def tonightOnlyMessages: Seq[String] =
+    for {
+      director <- directors
+      film     <- director.films
+    } yield s"Tonight! ${film.name} by ${director.name}!"
+
+  def earliestFilmByAnyDirector: Option[Film] =
+    directors
+      .flatMap(_.films)
+      .sortWith((a, b) => a.yearOfRelease < b.yearOfRelease)
+      .headOption
+}
+
+object Main extends App {
+  import TestData.directors
+  import TestMethods._
+
+  println(s"""directorsWithBackCatalogOfSize(3) == ${directorsWithBackCatalogOfSize(3)}""")
+  println(s"""directorsBornBefore(1970) == ${directorsBornBefore(1970)}""")
+  println(s"""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == ${directorsBornBeforeWithBackCatalogOfSize(1970, 5)}""")
+  println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
+  println(s"""namesOfFilmsByNolan == ${namesOfFilmsByNolan}""")
+  println(s"""namesOfAllFilmsByAllDirectors == ${namesOfAllFilmsByAllDirectors}""")
+  println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
+  println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
+  println(s"""averageImdbRating == ${averageImdbRating}""")
+  println(s"""tonightOnlyMessages == ${tonightOnlyMessages}""")
+  println(s"""earliestFilmByAnyDirector == ${earliestFilmByAnyDirector}""")
 }
