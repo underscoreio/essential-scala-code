@@ -51,80 +51,52 @@ object TestMethods {
   import TestData.directors
 
   def directorsWithBackCatalogOfSize(numberOfFilms: Int): Seq[Director] =
-    directors.filter(_.films.length >= numberOfFilms)
+    ???
 
   def directorsBornBefore(year: Int): Seq[Director] =
-    directors.filter(_.yearOfBirth < year)
+    ???
 
   def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): Seq[Director] =
-    directors
-     .filter(_.yearOfBirth < year)
-     .filter(_.films.length >= numberOfFilms)
+    ???
 
   def directorsSortedByAge(ascending: Boolean = true) =
-    directors.sortWith { (a, b) =>
-      if(ascending) {
-        a.yearOfBirth < b.yearOfBirth
-      } else {
-        a.yearOfBirth > b.yearOfBirth
-      }
-    }
+    ???
 
   def namesOfFilmsByNolan: Seq[String] =
-    directors
-      .find(_.lastName == "Nolan")
-      .map(_.films.map(_.name))
-      .getOrElse(Seq.empty)
+    ???
 
   def namesOfAllFilmsByAllDirectors: Seq[String] =
-    directors
-      .flatMap(_.films.map(film => film.name))
+    ???
 
   def earliestFilmsByAllDirectors: Map[Director, Option[Film]] =
-    for {
-      (director, films) <- directors.map(d => d -> d.films).toMap
-      earliest           = films
-                             .sortWith((a, b) => a.yearOfRelease < b.yearOfRelease)
-                             .headOption
-    } yield (director -> earliest)
-
+    ???
 
   def allFilmsSortedByImdb: Seq[Film] =
-    directors
-      .flatMap(_.films)
-      .sortWith((a, b) => a.imdbRating > b.imdbRating)
+    ???
 
-  def averageImdbRating: Double = {
-    val films = directors.flatMap(_.films)
-    films.foldLeft(0.0)(_ + _.imdbRating) / films.length
-  }
+  def averageImdbRating: Double =
+    ???
 
   def tonightOnlyMessages: Seq[String] =
-    for {
-      director <- directors
-      film     <- director.films
-    } yield s"Tonight! ${film.name} by ${director.name}!"
+    ???
 
   def earliestFilmByAnyDirector: Option[Film] =
-    directors
-      .flatMap(_.films)
-      .sortWith((a, b) => a.yearOfRelease < b.yearOfRelease)
-      .headOption
+    ???
 }
 
 object Main extends App {
   import TestData.directors
   import TestMethods._
 
-  println(s"""directorsWithBackCatalogOfSize(3) == ${directorsWithBackCatalogOfSize(3)}""")
-  println(s"""directorsBornBefore(1970) == ${directorsBornBefore(1970)}""")
-  println(s"""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == ${directorsBornBeforeWithBackCatalogOfSize(1970, 5)}""")
-  println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
-  println(s"""namesOfFilmsByNolan == ${namesOfFilmsByNolan}""")
-  println(s"""namesOfAllFilmsByAllDirectors == ${namesOfAllFilmsByAllDirectors}""")
-  println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
-  println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
-  println(s"""averageImdbRating == ${averageImdbRating}""")
-  println(s"""tonightOnlyMessages == ${tonightOnlyMessages}""")
-  println(s"""earliestFilmByAnyDirector == ${earliestFilmByAnyDirector}""")
+  // println(s"""directorsWithBackCatalogOfSize(3) == ${directorsWithBackCatalogOfSize(3)}""")
+  // println(s"""directorsBornBefore(1970) == ${directorsBornBefore(1970)}""")
+  // println(s"""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == ${directorsBornBeforeWithBackCatalogOfSize(1970, 5)}""")
+  // println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
+  // println(s"""namesOfFilmsByNolan == ${namesOfFilmsByNolan}""")
+  // println(s"""namesOfAllFilmsByAllDirectors == ${namesOfAllFilmsByAllDirectors}""")
+  // println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
+  // println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
+  // println(s"""averageImdbRating == ${averageImdbRating}""")
+  // println(s"""tonightOnlyMessages == ${tonightOnlyMessages}""")
+  // println(s"""earliestFilmByAnyDirector == ${earliestFilmByAnyDirector}""")
 }
