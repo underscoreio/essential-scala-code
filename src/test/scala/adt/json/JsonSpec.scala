@@ -2,7 +2,7 @@ package adt.json
 
 import org.scalatest._
 
-class JsValueSpec extends FlatSpec with Matchers {
+class JsonSpec extends FlatSpec with Matchers {
   val json1: JsValue =
     JsString("hello")
 
