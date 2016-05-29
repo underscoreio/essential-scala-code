@@ -59,28 +59,25 @@ object TestMethods {
   def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): Seq[Director] =
     ???
 
-  def directorsSortedByAge(ascending: Boolean = true) =
-    ???
-
   def namesOfFilmsByNolan: Seq[String] =
     ???
 
   def namesOfAllFilmsByAllDirectors: Seq[String] =
     ???
 
-  def earliestFilmsByAllDirectors: Map[Director, Option[Film]] =
+  def averageImdbRating: Double =
+    ???
+
+  def directorsSortedByAge(ascending: Boolean = true) =
     ???
 
   def allFilmsSortedByImdb: Seq[Film] =
     ???
 
-  def averageImdbRating: Double =
-    ???
-
-  def tonightOnlyMessages: Seq[String] =
-    ???
-
   def earliestFilmByAnyDirector: Option[Film] =
+    ???
+
+  def earliestFilmsByAllDirectors: Map[Director, Option[Film]] =
     ???
 }
 
@@ -91,12 +88,11 @@ object Main extends App {
   // println(s"""directorsWithBackCatalogOfSize(3) == ${directorsWithBackCatalogOfSize(3)}""")
   // println(s"""directorsBornBefore(1970) == ${directorsBornBefore(1970)}""")
   // println(s"""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == ${directorsBornBeforeWithBackCatalogOfSize(1970, 5)}""")
-  // println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
   // println(s"""namesOfFilmsByNolan == ${namesOfFilmsByNolan}""")
   // println(s"""namesOfAllFilmsByAllDirectors == ${namesOfAllFilmsByAllDirectors}""")
-  // println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
-  // println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
   // println(s"""averageImdbRating == ${averageImdbRating}""")
-  // println(s"""tonightOnlyMessages == ${tonightOnlyMessages}""")
+  // println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
+  // println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
+  // println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
   // println(s"""earliestFilmByAnyDirector == ${earliestFilmByAnyDirector}""")
 }

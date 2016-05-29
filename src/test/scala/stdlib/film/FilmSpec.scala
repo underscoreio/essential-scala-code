@@ -28,12 +28,6 @@ class FilmSpec extends FlatSpec with Matchers {
     // directorsBornBeforeWithBackCatalogOfSize(1930, 5) should contain theSameElementsAs(Nil)
   }
 
-  "directorsSortedByAge" should "produce the right result" in {
-    pending
-    // directorsSortedByAge(true) should equal(List(eastwood, mcTiernan, nolan, someGuy))
-    // directorsSortedByAge(false) should equal(List(eastwood, mcTiernan, nolan, someGuy).reverse)
-  }
-
   "namesOfFilmsByNolan" should "produce the right result" in {
     pending
     // namesOfFilmsByNolan should contain theSameElementsAs(nolan.films.map(_.name))
@@ -49,23 +43,6 @@ class FilmSpec extends FlatSpec with Matchers {
     // actual should contain theSameElementsAs(expected)
   }
 
-  "earliestFilmsByAllDirectors" should "produce the right result" in {
-    pending
-    // val actual   = earliestFilmsByAllDirectors
-    // val expected = for {
-    //   d <- directors
-    //   f  = d.films.sortBy(_.yearOfRelease).headOption
-    // } yield (d -> f)
-    // actual should contain theSameElementsAs(expected)
-  }
-
-  "allFilmsSortedByImdb" should "produce the right result" in {
-    pending
-    // val actual   = allFilmsSortedByImdb
-    // val expected = directors.flatMap(_.films).sortBy(f => -f.imdbRating)
-    // actual should equal(expected)
-  }
-
   "averageImdbRating" should "produce the right result" in {
     pending
     // val actual   = averageImdbRating
@@ -76,18 +53,31 @@ class FilmSpec extends FlatSpec with Matchers {
     // actual should equal(expected)
   }
 
-  "tonightOnlyMessages" should "produce the right result" in {
+  "directorsSortedByAge" should "produce the right result" in {
     pending
-    // val actual   = tonightOnlyMessages
-    // val expected = for {
-    //   d <- directors
-    //   f <- d.films
-    // } yield s"Tonight! ${f.name} by ${d.name}!"
+    // directorsSortedByAge(true) should equal(List(eastwood, mcTiernan, nolan, someGuy))
+    // directorsSortedByAge(false) should equal(List(eastwood, mcTiernan, nolan, someGuy).reverse)
+  }
+
+  "allFilmsSortedByImdb" should "produce the right result" in {
+    pending
+    // val actual   = allFilmsSortedByImdb
+    // val expected = directors.flatMap(_.films).sortBy(f => -f.imdbRating)
     // actual should equal(expected)
   }
 
   "earliestFilmByAnyDirector" should "produce the right result" in {
     pending
     // earliestFilmByAnyDirector should equal(Some(highPlainsDrifter))
+  }
+
+  "earliestFilmsByAllDirectors" should "produce the right result" in {
+    pending
+    // val actual   = earliestFilmsByAllDirectors
+    // val expected = for {
+    //   d <- directors
+    //   f  = d.films.sortBy(_.yearOfRelease).headOption
+    // } yield (d -> f)
+    // actual should contain theSameElementsAs(expected)
   }
 }
