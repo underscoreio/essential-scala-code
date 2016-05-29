@@ -31,6 +31,6 @@ object Main extends App {
   println(s"""emailOrdering.compare(email1, email2) == ${emailOrdering.compare(email1, email2)}""")
   // println(s"""personOrdering.compare(person1, person2) == ${personOrdering.compare(person1, person2)}""")
 
-  // println(s"""emails.sorted(emailOrdering) == ${emails.sorted(emailOrdering)}""")
-  // println(s"""people.sorted(oersibOrdering) == ${people.sorted(oersibOrdering)}""")
+  // println(s"""emails.sorted == ${emails.sorted}""")
+  // println(s"""people.sorted == ${people.sorted}""")
 }
