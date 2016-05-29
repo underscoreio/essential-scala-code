@@ -1,11 +1,5 @@
 package fn.higherorder
 
-sealed trait IntOption
-
-final case class IntSome(value: Int) extends IntOption
-
-case object IntNone extends IntOption
-
 sealed trait IntList {
   def exists(func: Int => Boolean): Boolean =
     ???
@@ -13,8 +7,8 @@ sealed trait IntList {
   def filter(func: Int => Boolean): IntList =
     ???
 
-  def find(func: Int => Boolean): IntOption =
-    ???
+  // def find(func: Int => Boolean): ??? =
+  //   ???
 }
 
 final case class IntPair(head: Int, tail: IntList)
