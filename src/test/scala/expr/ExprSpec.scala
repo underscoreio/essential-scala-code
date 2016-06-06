@@ -10,6 +10,10 @@ class ExprSpec extends FlatSpec with Matchers {
     // palindrome("tacocat") should equal(true)
   }
 
+  "tacobell" should "NOT be a palindrome" in {
+    pending
+    // palindrome("tacobell") should equal(false)
+  }
 
   "factorial" should "multiply some numbers and stuff" in {  
     pending
