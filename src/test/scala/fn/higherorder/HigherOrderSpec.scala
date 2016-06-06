@@ -1,5 +1,6 @@
 package fn.higherorder
 
+import adt.intlist._
 import org.scalatest._
 
 class HigherOrderSpec extends FlatSpec with Matchers {
