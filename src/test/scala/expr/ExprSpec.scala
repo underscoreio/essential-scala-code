@@ -7,7 +7,7 @@ class ExprSpec extends FlatSpec with Matchers {
 
   "tacocat" should "be a palindrome" in {
     pending
-    // palindrome("tacocat") should equal("tacocat")
+    // palindrome("tacocat") should equal(true)
   }
 
 
