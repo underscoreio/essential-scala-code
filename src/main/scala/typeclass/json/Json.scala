@@ -36,7 +36,7 @@ object JsonImplicits {
   // implicit val emailWriter: JsonWriter[Email] =
   //   ???
 
-  // implicit val writer: JsonWriter[Person] =
+  // implicit val personWriter: JsonWriter[Person] =
   //   ???
 
   // def listWriter[A](writer: JsonWriter[A]): JsonWriter[List[A]] =
