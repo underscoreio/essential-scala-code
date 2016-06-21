@@ -68,7 +68,7 @@ object TestMethods {
   def averageImdbRating: Double =
     ???
 
-  def directorsSortedByAge(ascending: Boolean = true) =
+  def directorsSortedByAge(ascending: Boolean = true): Seq[Director] =
     ???
 
   def allFilmsSortedByImdb: Seq[Film] =
