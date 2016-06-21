@@ -61,7 +61,7 @@ object TestMethods {
      .filter(_.yearOfBirth < year)
      .filter(_.films.length >= numberOfFilms)
 
-  def directorsSortedByAge(ascending: Boolean = true) =
+  def directorsSortedByAge(ascending: Boolean = true): Seq[Director] =
     directors.sortWith { (a, b) =>
       if(ascending) {
         a.yearOfBirth < b.yearOfBirth
