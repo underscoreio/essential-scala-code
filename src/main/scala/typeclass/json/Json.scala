@@ -69,14 +69,14 @@ object Main extends App {
   val emails = List(email1, email2, email3)
   val people = List(person1, person2, person3)
 
-  println(s"""email1.toJson == ${email1.toJson}""")
-  println(s"""email2.toJson == ${email2.toJson}""")
-  println(s"""email3.toJson == ${email3.toJson}""")
+  println("""email1.toJson  == """ + email1.toJson)
+  println("""email2.toJson  == """ + email2.toJson)
+  println("""email3.toJson  == """ + email3.toJson)
 
-  println(s"""person1.toJson == ${person1.toJson}""")
-  println(s"""person2.toJson == ${person2.toJson}""")
-  println(s"""person3.toJson == ${person3.toJson}""")
+  println("""person1.toJson == """ + person1.toJson)
+  println("""person2.toJson == """ + person2.toJson)
+  println("""person3.toJson == """ + person3.toJson)
 
-  println(s"""emails.toJson == ${emails.toJson}""")
-  println(s"""people.toJson == ${people.toJson}""")
+  println("""emails.toJson  == """ + emails.toJson)
+  println("""people.toJson  == """ + people.toJson)
 }
