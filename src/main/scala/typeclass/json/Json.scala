@@ -56,14 +56,14 @@ object Main extends App {
   val person3 = Person("Bob",     Email("bob@awesome.com"))
   val people = List(person1, person2, person3)
 
-  // println(s"""jsonify(email1) == ${jsonify(email1)}""")
-  // println(s"""jsonify(email2) == ${jsonify(email2)}""")
-  // println(s"""jsonify(email3) == ${jsonify(email3)}""")
+  // println("""jsonify(email1)  == """ + jsonify(email1))
+  // println("""jsonify(email2)  == """ + jsonify(email2))
+  // println("""jsonify(email3)  == """ + jsonify(email3))
 
-  // println(s"""jsonify(person1) == ${jsonify(person1)}""")
-  // println(s"""jsonify(person2) == ${jsonify(person2)}""")
-  // println(s"""jsonify(person3) == ${jsonify(person3)}""")
+  // println("""jsonify(person1) == """ + jsonify(person1))
+  // println("""jsonify(person2) == """ + jsonify(person2))
+  // println("""jsonify(person3) == """ + jsonify(person3))
 
-  // println(s"""jsonify(emails) == ${jsonify(emails)}""")
-  // println(s"""jsonify(people) == ${jsonify(people)}""")
+  // println("""jsonify(emails)  == """ + jsonify(emails))
+  // println("""jsonify(people)  == """ + jsonify(people))
 }

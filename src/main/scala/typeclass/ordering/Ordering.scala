@@ -28,9 +28,9 @@ object Main extends App {
   val person3 = Person("Bob",     Email("bob@awesome.com"))
   val people = List(person1, person2, person3)
 
-  println(s"""emailOrdering.compare(email1, email2) == ${emailOrdering.compare(email1, email2)}""")
-  // println(s"""personOrdering.compare(person1, person2) == ${personOrdering.compare(person1, person2)}""")
+  println("""emailOrdering.compare(email1, email2)    == """ + emailOrdering.compare(email1, email2))
+  // println("""personOrdering.compare(person1, person2) == """ + personOrdering.compare(person1, person2))
 
-  // println(s"""emails.sorted == ${emails.sorted}""")
-  // println(s"""people.sorted == ${people.sorted}""")
+  // println("""emails.sorted == """ + emails.sorted)
+  // println("""people.sorted == """ + people.sorted)
 }

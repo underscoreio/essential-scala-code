@@ -85,14 +85,14 @@ object Main extends App {
   import TestData.directors
   import TestMethods._
 
-  // println(s"""directorsWithBackCatalogOfSize(3) == ${directorsWithBackCatalogOfSize(3)}""")
-  // println(s"""directorsBornBefore(1970) == ${directorsBornBefore(1970)}""")
-  // println(s"""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == ${directorsBornBeforeWithBackCatalogOfSize(1970, 5)}""")
-  // println(s"""namesOfFilmsByNolan == ${namesOfFilmsByNolan}""")
-  // println(s"""namesOfAllFilmsByAllDirectors == ${namesOfAllFilmsByAllDirectors}""")
-  // println(s"""averageImdbRating == ${averageImdbRating}""")
-  // println(s"""directorsSortedByAge(false) == ${directorsSortedByAge(false)}""")
-  // println(s"""allFilmsSortedByImdb == ${allFilmsSortedByImdb}""")
-  // println(s"""earliestFilmsByAllDirectors == ${earliestFilmsByAllDirectors}""")
-  // println(s"""earliestFilmByAnyDirector == ${earliestFilmByAnyDirector}""")
+  // println("""directorsWithBackCatalogOfSize(3)                 == """ + directorsWithBackCatalogOfSize(3))
+  // println("""directorsBornBefore(1970)                         == """ + directorsBornBefore(1970))
+  // println("""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == """ + directorsBornBeforeWithBackCatalogOfSize(1970, 5))
+  // println("""namesOfFilmsByNolan                               == """ + namesOfFilmsByNolan)
+  // println("""namesOfAllFilmsByAllDirectors                     == """ + namesOfAllFilmsByAllDirectors)
+  // println("""averageImdbRating                                 == """ + averageImdbRating)
+  // println("""directorsSortedByAge(false)                       == """ + directorsSortedByAge(false))
+  // println("""allFilmsSortedByImdb                              == """ + allFilmsSortedByImdb)
+  // println("""earliestFilmsByAllDirectors                       == """ + earliestFilmsByAllDirectors)
+  // println("""earliestFilmByAnyDirector                         == """ + earliestFilmByAnyDirector)
 }
