@@ -6,11 +6,11 @@ class ShapeSpec extends FlatSpec with Matchers {
   val shape1: Shape = Circle(10, Color(1, 0, 0))
   val shape2: Shape = Rect(3, 5, Color(0, 1, 0))
 
-  "Shape.area" should "calculate the area of a circle" in {
-    Shape.area(shape1) should equal(math.Pi * 10 * 10)
+  "area" should "calculate the area of a circle" in {
+    Main.area(shape1) should equal(math.Pi * 10 * 10)
   }
 
   it should "calculate the area of a rectangle" in {
-    Shape.area(shape2) should equal(3 * 5)
+    Main.area(shape2) should equal(3 * 5)
   }
 }
