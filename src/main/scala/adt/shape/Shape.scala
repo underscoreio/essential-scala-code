@@ -10,6 +10,9 @@ object Main extends App {
   // val shape1 = Circle(10, Color(1, 0, 0))
   // val shape2 = Rect(3, 5, Color(0, 1, 0))
 
-  // println(shape1 + " " + Shape.area(shape1))
-  // println(shape2 + " " + Shape.area(shape2))
+  // def area(shape: Shape): Double =
+  //   ???
+
+  // println(shape1 + " " + area(shape1))
+  // println(shape2 + " " + area(shape2))
 }
