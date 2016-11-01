@@ -3,7 +3,7 @@ package adt.intlist
 import org.scalatest._
 
 class IntListSpec extends FlatSpec with Matchers {
-  // val ints = IntPair(1, IntPair(2, IntPair(3, IntNil)))
+  // val ints = IntPair(1, IntPair(2, IntPair(3, IntNil())))
 
   "intList.contains" should "return true and false appropriately" in {
     pending
