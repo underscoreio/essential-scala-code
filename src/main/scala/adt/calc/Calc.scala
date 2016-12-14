@@ -14,7 +14,13 @@ object Main extends App {
 
   // TODO:
   // - Implement squaring a number using Calc
+  // - Use your implementation to calculate 1.1 * 1.1
+
+  // TODO:
   // - Implement pythagoras' theorem using Calc
-  // - Use your pythagoras implementation to calculate
-  //   the hypotenuse of a 3x4 triangle
+  // - Use your implementation to calculate the hypotenuse of a 3x4 triangle
+
+  // TODO:
+  // - Implement factorials using Calc
+  // - Use your implementation to calculate 10!
 }
