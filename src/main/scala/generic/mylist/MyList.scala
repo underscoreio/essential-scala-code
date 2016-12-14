@@ -1,30 +1,29 @@
 package generic.mylist
 
-sealed trait MyOption[+A] {
+sealed trait MyOption[A] {
   def map[B](func: A => B): MyOption[B] =
     this match {
       case MySome(value) => MySome(func(value))
-      case MyNone        => MyNone
+      case MyNone()      => MyNone()
     }
 
   def flatMap[B](func: A => MyOption[B]): MyOption[B] =
     this match {
       case MySome(value) => func(value)
-      case MyNone        => MyNone
+      case MyNone()      => MyNone()
     }
 }
 
 final case class MySome[A](value: A) extends MyOption[A]
+final case class MyNone[A]() extends MyOption[A]
 
-case object MyNone extends MyOption[Nothing]
-
-sealed trait MyList[+A] {
+sealed trait MyList[A] {
   def exists(func: A => Boolean): Boolean =
     this match {
       case MyPair(head, tail) =>
         func(head) || tail.exists(func)
 
-      case MyNil => false
+      case MyNil() => false
     }
 
   def filter(func: A => Boolean): MyList[A] =
@@ -36,7 +35,7 @@ sealed trait MyList[+A] {
           tail.filter(func)
         }
 
-      case MyNil => MyNil
+      case MyNil() => MyNil()
     }
 
   def find(func: A => Boolean): MyOption[A] =
@@ -48,15 +47,14 @@ sealed trait MyList[+A] {
           tail.find(func)
         }
 
-      case MyNil => MyNone
+      case MyNil() => MyNone()
     }
 
-  def append[B >: A](that: MyList[B]): MyList[B] =
+  def append(that: MyList[A]): MyList[A] =
     this match {
       case MyPair(hear, tail) =>
         MyPair(hear, tail append that)
-
-      case MyNil => that
+      case MyNil() => that
 
     }
 
@@ -65,7 +63,7 @@ sealed trait MyList[+A] {
       case MyPair(hear, tail) =>
         MyPair(func(hear), tail.map(func))
 
-      case MyNil => MyNil
+      case MyNil() => MyNil()
 
     }
 
@@ -74,7 +72,7 @@ sealed trait MyList[+A] {
       case MyPair(head, tail) =>
         func(head) append tail.flatMap(func)
 
-      case MyNil => MyNil
+      case MyNil() => MyNil()
 
     }
 
@@ -83,7 +81,7 @@ sealed trait MyList[+A] {
       case MyPair(head, tail) =>
         tail.foldLeft(func(memo, head))(func)
 
-      case MyNil => memo
+      case MyNil() => memo
     }
 
   def foldRight[B](memo: B)(func: (A, B) => B): B =
@@ -91,17 +89,17 @@ sealed trait MyList[+A] {
       case MyPair(head, tail) =>
         func(head, tail.foldRight(memo)(func))
 
-      case MyNil => memo
+      case MyNil() => memo
     }
 }
 
 final case class MyPair[A](head: A, tail: MyList[A]) extends MyList[A]
 
-case object MyNil extends MyList[Nothing]
+final case class MyNil[A]() extends MyList[A]
 
 object Main extends App {
-  val ints = MyPair(1, MyPair(3, MyPair(5, MyNil)))
-  val strs = MyPair("foo", MyPair("bar", MyPair("baz", MyNil)))
+  val ints = MyPair(1, MyPair(3, MyPair(5, MyNil())))
+  val strs = MyPair("foo", MyPair("bar", MyPair("baz", MyNil())))
 
   println(ints + """.exists(_ > 1)         == """ + ints.exists(_ > 1))
   println(ints + """.filter(_ > 1)         == """ + ints.filter(_ > 1))
@@ -118,10 +116,10 @@ object Main extends App {
   println(strs + """.map(_ + "!"))         == """ + strs.map(_ + "!"))
 
   def processInt(x: Int): MyList[Int] =
-    MyPair(x, MyPair(x * 10, MyNil))
+    MyPair(x, MyPair(x * 10, MyNil()))
 
   def processStr(x: String): MyList[String] =
-    MyPair(x, MyPair(x + "!", MyNil))
+    MyPair(x, MyPair(x + "!", MyNil()))
 
   println(ints + """.flatMap(processInt)   == """ + ints.flatMap(processInt))
   println(strs + """.flatMap(processStr)   == """ + strs.flatMap(processStr))
