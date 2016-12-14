@@ -3,8 +3,8 @@ package generic.mylist
 // TODO: Implement MyList
 
 object Main extends App {
-  // val ints = MyPair(1, MyPair(3, MyPair(5, MyNil)))
-  // val strs = MyPair("foo", MyPair("bar", MyPair("baz", MyNil)))
+  // val ints = MyPair(1, MyPair(3, MyPair(5, MyNil())))
+  // val strs = MyPair("foo", MyPair("bar", MyPair("baz", MyNil())))
 
   // println(ints + """.exists(_ > 1)         == """ + ints.exists(_ > 1))
   // println(ints + """.filter(_ > 1)         == """ + ints.filter(_ > 1))
@@ -21,10 +21,10 @@ object Main extends App {
   // println(strs + """.map(_ + "!"))         == """ + strs.map(_ + "!"))
 
   // def processInt(x: Int): MyList[Int] =
-  //   MyPair(x, MyPair(x * 10, MyNil))
+  //   MyPair(x, MyPair(x * 10, MyNil()))
 
   // def processStr(x: String): MyList[String] =
-  //   MyPair(x, MyPair(x + "!", MyNil))
+  //   MyPair(x, MyPair(x + "!", MyNil()))
 
   // println(ints + """.flatMap(processInt)   == """ + ints.flatMap(processInt))
   // println(strs + """.flatMap(processStr)   == """ + strs.flatMap(processStr))
