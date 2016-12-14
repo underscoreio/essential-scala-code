@@ -122,6 +122,9 @@ object Main extends App {
   def square(a: Double): Calc =
     Mul(Num(a), Num(a))
 
+  println("square " + Interpreter.run(Mul(Num(1.1), Num(1.1))))
+  println("square " + IntInterpreter.run(Mul(Num(1.1), Num(1.1))))
+
   // - Implement pythagoras' theorem using Calc
   def pythag(a: Double, b: Double): Calc =
     Sqrt(Add(square(a), square(b)))
