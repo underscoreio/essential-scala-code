@@ -3,8 +3,8 @@ package adt.calc
 sealed trait Calc
 // TODO: Implement Calc
 
-object DoubleInterpreter {
-  // TODO: Implement a simple interpreter that uses Doubles
+object Interpreter {
+  // TODO: Implement a simple interpreter for Calc
 }
 
 object Main extends App {
