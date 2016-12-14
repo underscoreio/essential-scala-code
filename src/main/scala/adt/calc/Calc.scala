@@ -37,7 +37,13 @@ object IntInterpreter {
 // TODO: Implement an interpreter that:
 // - reports division-by-zero
 // - reports square roots of negatives
-object SafeInterpreter {
+//
+// This is an example of what we can achieve
+// at the end of the ADTs section of the course:
+// - no generic types
+// - no sequencing methods
+// - no library classes
+object SafeInterpreter1 {
   sealed trait Result
   final case class Passed(value: Double) extends Result
   final case class Failed(message: String) extends Result
@@ -105,6 +111,111 @@ object SafeInterpreter {
     }
 }
 
+// TODO: Implement an interpreter that:
+// - handles division-by-zero gracefully
+// - handles square roots of negatives gracefully
+//
+// This is an example of what we can achieve using MyOption
+// at the end of the sequencing computations section of the course:
+// - no built-in collection types
+sealed trait MyOption[A] {
+  def map[B](func: A => B): MyOption[B] =
+    this match {
+      case MySome(value) => MySome(func(value))
+      case MyNone()      => MyNone()
+    }
+
+  def flatMap[B](func: A => MyOption[B]): MyOption[B] =
+    this match {
+      case MySome(value) => func(value)
+      case MyNone()      => MyNone()
+    }
+}
+final case class MySome[A](value: A) extends MyOption[A]
+final case class MyNone[A]() extends MyOption[A]
+
+object SafeInterpreter2 {
+  def run(calc: Calc): MyOption[Double] =
+    calc match {
+      case Num(a) => MySome(a)
+
+      case Add(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a + b
+
+      case Sub(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a - b
+
+      case Mul(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a * b
+
+      case Div(a, b) =>
+        for {
+          a   <- run(a)
+          b   <- run(b)
+          ans <- if (b != 0) MySome(a / b) else MyNone()
+        } yield ans
+
+      case Sqrt(a) =>
+        for {
+          a   <- run(a)
+          ans <- if(a >= 0) MySome(math.sqrt(a)) else MyNone()
+        } yield ans
+    }
+}
+
+// TODO: Implement an interpreter that:
+// - reports division-by-zero
+// - reports square roots of negatives
+//
+// This is an example of what we can achieve
+// at the end of the collections section of the course.
+object SafeInterpreter3 {
+  def run(calc: Calc): Either[String, Double] =
+    calc match {
+      case Num(a) => Right(a)
+
+      case Add(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a + b
+
+      case Sub(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a - b
+
+      case Mul(a, b) =>
+        for {
+          a <- run(a)
+          b <- run(b)
+        } yield a * b
+
+      case Div(a, b) =>
+        for {
+          a   <- run(a)
+          b   <- run(b)
+          ans <- Either.cond(b != 0, a / b, "division by zero")
+        } yield ans
+
+      case Sqrt(a) =>
+        for {
+          a   <- run(a)
+          ans <- Either.cond(a >= 0, math.sqrt(a), "square root of negative")
+        } yield ans
+    }
+}
+
 object Main extends App {
   // TODO:
   // - Calculate and print: 1.1 + 2.2 * 3.3
@@ -142,7 +253,15 @@ object Main extends App {
   println("factorial " + IntInterpreter.run(factorial(10)))
 
   // Demonstrate run fails gracefully:
-  println("safe interpreter " + SafeInterpreter.run(Sqrt(Num(-1))))
-  println("safe interpreter " + SafeInterpreter.run(Div(Num(1), Num(0))))
-  println("safe interpreter " + SafeInterpreter.run(pythag(-3, -4)))
+  println("safe interpreter 1 " + SafeInterpreter1.run(Sqrt(Num(-1))))
+  println("safe interpreter 1 " + SafeInterpreter1.run(Div(Num(1), Num(0))))
+  println("safe interpreter 1 " + SafeInterpreter1.run(pythag(-3, -4)))
+
+  println("safe interpreter 2 " + SafeInterpreter2.run(Sqrt(Num(-1))))
+  println("safe interpreter 2 " + SafeInterpreter2.run(Div(Num(1), Num(0))))
+  println("safe interpreter 2 " + SafeInterpreter2.run(pythag(-3, -4)))
+
+  println("safe interpreter 3 " + SafeInterpreter3.run(Sqrt(Num(-1))))
+  println("safe interpreter 3 " + SafeInterpreter3.run(Div(Num(1), Num(0))))
+  println("safe interpreter 3 " + SafeInterpreter3.run(pythag(-3, -4)))
 }
