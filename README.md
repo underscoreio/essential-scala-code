@@ -14,13 +14,13 @@ This repository contains two branches: one for `exercises` and one for `solution
 The directory structure is the same in each branch.
 
 You will need to have Git and Java and an internet connection to run the exercises.
-All other dependendencies are either included with the repo
+All other dependencies are either included with the repo
 or downloaded on demand during compilation.
 
 ### Notes on Editors and IDEs
 
 If you don't have a particular preference for a Scala editor or IDE,
-we strongly recommend you do the exercises for this couse using
+we strongly recommend you do the exercises for this course using
 the [Atom][atom] editor and a Linux or OS X terminal.
 See the instructions below to get started.
 
