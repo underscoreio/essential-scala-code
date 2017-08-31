@@ -4,7 +4,7 @@ final case class Director(
   firstName: String,
   lastName: String,
   yearOfBirth: Int,
-  films: Seq[Film]
+  films: List[Film]
 ) {
   def name: String =
     s"$firstName $lastName"
@@ -33,45 +33,45 @@ object TestData {
   val thomasCrownAffair = new Film("The Thomas Crown Affair", 1999, 6.8)
 
   val eastwood = new Director("Clint", "Eastwood", 1930,
-    Seq(highPlainsDrifter, outlawJoseyWales, unforgiven, granTorino, invictus))
+    List(highPlainsDrifter, outlawJoseyWales, unforgiven, granTorino, invictus))
 
   val mcTiernan = new Director("John", "McTiernan", 1951,
-    Seq(predator, dieHard, huntForRedOctober, thomasCrownAffair))
+    List(predator, dieHard, huntForRedOctober, thomasCrownAffair))
 
   val nolan = new Director("Christopher", "Nolan", 1970,
-    Seq(memento, darkKnight, inception))
+    List(memento, darkKnight, inception))
 
   val someGuy = new Director("Just", "Some Guy", 1990,
-    Seq())
+    Nil)
 
-  val directors = Seq(someGuy, mcTiernan, nolan, eastwood)
+  val directors = List(someGuy, mcTiernan, nolan, eastwood)
 }
 
 object TestMethods {
   import TestData.directors
 
-  def directorsWithBackCatalogOfSize(numberOfFilms: Int): Seq[Director] =
+  def directorsWithBackCatalogOfSize(numberOfFilms: Int): List[Director] =
     ???
 
-  def directorsBornBefore(year: Int): Seq[Director] =
+  def directorsBornBefore(year: Int): List[Director] =
     ???
 
-  def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): Seq[Director] =
+  def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): List[Director] =
     ???
 
-  def namesOfFilmsByNolan: Seq[String] =
+  def namesOfFilmsByNolan: List[String] =
     ???
 
-  def namesOfAllFilmsByAllDirectors: Seq[String] =
+  def namesOfAllFilmsByAllDirectors: List[String] =
     ???
 
   def averageImdbRating: Double =
     ???
 
-  def directorsSortedByAge(ascending: Boolean = true): Seq[Director] =
+  def directorsSortedByAge(ascending: Boolean = true): List[Director] =
     ???
 
-  def allFilmsSortedByImdb: Seq[Film] =
+  def allFilmsSortedByImdb: List[Film] =
     ???
 
   def earliestFilmByAnyDirector: Option[Film] =
