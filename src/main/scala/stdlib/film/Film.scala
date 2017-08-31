@@ -59,10 +59,10 @@ object TestMethods {
   def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): List[Director] =
     ???
 
-  def namesOfFilmsByNolan: List[String] =
+  def namesOfAllFilmsByAllDirectors: List[String] =
     ???
 
-  def namesOfAllFilmsByAllDirectors: List[String] =
+  def namesOfFilmsByNolan: List[String] =
     ???
 
   def averageImdbRating: Double =

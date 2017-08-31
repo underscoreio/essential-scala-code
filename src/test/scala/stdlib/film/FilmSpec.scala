@@ -28,11 +28,6 @@ class FilmSpec extends FlatSpec with Matchers {
     // directorsBornBeforeWithBackCatalogOfSize(1930, 5) should contain theSameElementsAs(Nil)
   }
 
-  "namesOfFilmsByNolan" should "produce the right result" in {
-    pending
-    // namesOfFilmsByNolan should contain theSameElementsAs(nolan.films.map(_.name))
-  }
-
   "namesOfAllFilmsByAllDirectors" should "produce the right result" in {
     pending
     // val actual   = namesOfAllFilmsByAllDirectors
@@ -41,6 +36,11 @@ class FilmSpec extends FlatSpec with Matchers {
     //   f <- d.films
     // } yield f.name
     // actual should contain theSameElementsAs(expected)
+  }
+
+  "namesOfFilmsByNolan" should "produce the right result" in {
+    pending
+    // namesOfFilmsByNolan should contain theSameElementsAs(nolan.films.map(_.name))
   }
 
   "averageImdbRating" should "produce the right result" in {
