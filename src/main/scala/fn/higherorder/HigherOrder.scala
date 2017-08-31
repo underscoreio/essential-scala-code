@@ -14,10 +14,10 @@ sealed trait IntList {
 final case class IntPair(head: Int, tail: IntList)
   extends IntList
 
-case object IntNil extends IntList
+case class IntNil() extends IntList
 
 object Main extends App {
-  val ints = IntPair(1, IntPair(3, IntPair(5, IntNil)))
+  val ints = IntPair(1, IntPair(3, IntPair(5, IntNil())))
 
   println(ints + """.exists(_ > 0)      == """ + ints.exists(_ > 0))
   println(ints + """.exists(_ < 0)      == """ + ints.exists(_ < 0))
