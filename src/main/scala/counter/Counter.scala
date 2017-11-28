@@ -7,8 +7,6 @@ package counter
 //  - a "toString" method that returns "Counter(x)" where "x" is the value
 
 object Main extends App {
-  import Expr._
-
   // val counter1 = new Counter(41)
   // val counter2 = counter1.inc
   // val theAnswer = counter2.get
