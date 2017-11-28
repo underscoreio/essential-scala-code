@@ -10,9 +10,9 @@ object Main extends App {
   // println(ints + """.filter(_ > 1)         == """ + ints.filter(_ > 1))
   // println(ints + """.find(_ > 1)           == """ + ints.find(_ > 1))
 
-  // println(strs + """.exists(_(0) == 'b')   == """ + strs.exists(_(0) == 'b'))
-  // println(strs + """.filter(_(0) == 'b')   == """ + strs.filter(_(0) == 'b'))
-  // println(strs + """.find(_(0) == 'b')     == """ + strs.find(_(0) == 'b'))
+  // println(strs + """.exists(_.head == 'b')   == """ + strs.exists(_.head == 'b'))
+  // println(strs + """.filter(_.head == 'b')   == """ + strs.filter(_.head == 'b'))
+  // println(strs + """.find(_.head == 'b')     == """ + strs.find(_.head == 'b'))
 
   // def add(ints: MyList[Int], num: Int): MyList[Int] =
   //   ???
