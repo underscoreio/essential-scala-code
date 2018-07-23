@@ -8,76 +8,106 @@ class FilmSpec extends FlatSpec with Matchers {
 
   "directorsWithBackCatalogOfSize" should "produce the right result" in {
     pending
-    // directorsWithBackCatalogOfSize(1) should contain theSameElementsAs(List(eastwood, mcTiernan, nolan))
-    // directorsWithBackCatalogOfSize(4) should contain theSameElementsAs(List(eastwood, mcTiernan))
-    // directorsWithBackCatalogOfSize(5) should contain theSameElementsAs(List(eastwood))
+    // directorsWithBackCatalogOfSize(directors, 1) should contain theSameElementsAs(List(eastwood, mcTiernan, nolan))
+    // directorsWithBackCatalogOfSize(directors, 4) should contain theSameElementsAs(List(eastwood, mcTiernan))
+    // directorsWithBackCatalogOfSize(directors, 5) should contain theSameElementsAs(List(eastwood))
   }
 
   "directorsBornBefore" should "produce the right result" in {
     pending
-    // directorsBornBefore(1930) should contain theSameElementsAs(Nil)
-    // directorsBornBefore(1931) should contain theSameElementsAs(List(eastwood))
-    // directorsBornBefore(1951) should contain theSameElementsAs(List(eastwood))
-    // directorsBornBefore(1952) should contain theSameElementsAs(List(eastwood, mcTiernan))
+    // directorsBornBefore(directors, 1930) should contain theSameElementsAs(Nil)
+    // directorsBornBefore(directors, 1931) should contain theSameElementsAs(List(eastwood))
+    // directorsBornBefore(directors, 1951) should contain theSameElementsAs(List(eastwood))
+    // directorsBornBefore(directors, 1952) should contain theSameElementsAs(List(eastwood, mcTiernan))
   }
 
   "directorsBornBeforeWithBackCatalogOfSize" should "produce the right result" in {
     pending
-    // directorsBornBeforeWithBackCatalogOfSize(1931, 5) should contain theSameElementsAs(List(eastwood))
-    // directorsBornBeforeWithBackCatalogOfSize(1931, 6) should contain theSameElementsAs(Nil)
-    // directorsBornBeforeWithBackCatalogOfSize(1930, 5) should contain theSameElementsAs(Nil)
+    // directorsBornBeforeWithBackCatalogOfSize(directors, 1931, 5) should contain theSameElementsAs(List(eastwood))
+    // directorsBornBeforeWithBackCatalogOfSize(directors, 1931, 6) should contain theSameElementsAs(Nil)
+    // directorsBornBeforeWithBackCatalogOfSize(directors, 1930, 5) should contain theSameElementsAs(Nil)
   }
 
-  "namesOfAllFilmsByAllDirectors" should "produce the right result" in {
+  "namesOfAllFilms" should "produce the right result" in {
     pending
-    // val actual   = namesOfAllFilmsByAllDirectors
-    // val expected = for {
-    //   d <- directors
-    //   f <- d.films
-    // } yield f.name
+    // val actual   = namesOfAllFilms(directors)
+    // val expected = List(
+    //   "Memento",
+    //   "Dark Knight",
+    //   "Inception",
+    //   "High Plains Drifter",
+    //   "The Outlaw Josey Wales",
+    //   "Unforgiven",
+    //   "Gran Torino",
+    //   "Invictus",
+    //   "Predator",
+    //   "Die Hard",
+    //   "The Hunt for Red October",
+    //   "The Thomas Crown Affair",
+    // )
     // actual should contain theSameElementsAs(expected)
+  }
+
+  "findDirectorWithName" should "produce the right result" in {
+    pending
+    // findDirectorWithName(directors, "Nolan") should equal(Some(nolan))
+    // findDirectorWithName(directors, "Dijkstra") should equal(None)
   }
 
   "namesOfFilmsByNolan" should "produce the right result" in {
     pending
-    // namesOfFilmsByNolan should contain theSameElementsAs(nolan.films.map(_.name))
+    // val actual   = namesOfFilmsByNolan(directors)
+    // val expected = List("Memento", "Dark Knight", "Inception")
+    // actual should contain theSameElementsAs(expected)
   }
 
   "averageImdbRating" should "produce the right result" in {
-    pending
-    // val actual   = averageImdbRating
-    // val expected = {
-    //   val films = directors.flatMap(_.films)
-    //   films.map(_.imdbRating).sum / films.length
-    // }
-    // actual should equal(expected)
+    // pending
+    // val actual   = averageImdbRating(directors)
+    // val expected = 8.03
+    // actual should equal(expected +- 0.1)
   }
 
   "directorsSortedByAge" should "produce the right result" in {
     pending
-    // directorsSortedByAge(true) should equal(List(eastwood, mcTiernan, nolan, someGuy))
-    // directorsSortedByAge(false) should equal(List(eastwood, mcTiernan, nolan, someGuy).reverse)
+    // directorsSortedByAge(directors, true) should equal(List(eastwood, mcTiernan, nolan, someGuy))
+    // directorsSortedByAge(directors, false) should equal(List(eastwood, mcTiernan, nolan, someGuy).reverse)
   }
 
   "allFilmsSortedByImdb" should "produce the right result" in {
     pending
-    // val actual   = allFilmsSortedByImdb
-    // val expected = directors.flatMap(_.films).sortBy(f => -f.imdbRating)
+    // val actual   = allFilmsSortedByImdb(directors)
+    // val expected = List(
+    //   darkKnight,
+    //   inception,
+    //   memento,
+    //   unforgiven,
+    //   dieHard,
+    //   granTorino,
+    //   predator,
+    //   outlawJoseyWales,
+    //   highPlainsDrifter,
+    //   huntForRedOctober,
+    //   invictus,
+    //   thomasCrownAffair,
+    // )
     // actual should equal(expected)
   }
 
   "earliestFilmByAnyDirector" should "produce the right result" in {
     pending
-    // earliestFilmByAnyDirector should equal(Some(highPlainsDrifter))
+    // earliestFilmByAnyDirector(directors) should equal(Some(highPlainsDrifter))
   }
 
   "earliestFilmsByAllDirectors" should "produce the right result" in {
     pending
-    // val actual   = earliestFilmsByAllDirectors
-    // val expected = for {
-    //   d <- directors
-    //   f  = d.films.sortBy(_.yearOfRelease).headOption
-    // } yield (d -> f)
-    // actual should contain theSameElementsAs(expected)
+    // val actual   = earliestFilmsByAllDirectors(directors)
+    // val expected = Map(
+    //   eastwood  -> Some(highPlainsDrifter),
+    //   mcTiernan -> Some(predator),
+    //   nolan     -> Some(memento),
+    //   someGuy   -> None
+    // )
+    // actual should equal(expected)
   }
 }

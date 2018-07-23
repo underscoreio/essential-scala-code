@@ -16,6 +16,41 @@ final case class Film(
   imdbRating: Double
 )
 
+object TestMethods {
+  def directorsWithBackCatalogOfSize(directors: List[Director], numberOfFilms: Int): List[Director] =
+    ???
+
+  def directorsBornBefore(directors: List[Director], year: Int): List[Director] =
+    ???
+
+  def directorsBornBeforeWithBackCatalogOfSize(directors: List[Director], year: Int, numberOfFilms: Int): List[Director] =
+    ???
+
+  def namesOfAllFilms(directors: List[Director]): List[String] =
+    ???
+
+  def findDirectorWithName(directors: List[Director], lastName: String): Option[Director] =
+    ???
+
+  def namesOfFilmsByNolan(directors: List[Director]): List[String] =
+    ???
+
+  def averageImdbRating(directors: List[Director]): Double =
+    ???
+
+  def directorsSortedByAge(directors: List[Director], ascending: Boolean = true): List[Director] =
+    ???
+
+  def allFilmsSortedByImdb(directors: List[Director]): List[Film] =
+    ???
+
+  def earliestFilmByAnyDirector(directors: List[Director]): Option[Film] =
+    ???
+
+  def earliestFilmsByAllDirectors(directors: List[Director]): Map[Director, Option[Film]] =
+    ???
+}
+
 object TestData {
   val memento           = new Film("Memento", 2000, 8.5)
   val darkKnight        = new Film("Dark Knight", 2008, 9.0)
@@ -45,54 +80,23 @@ object TestData {
     Nil)
 
   val directors = List(someGuy, mcTiernan, nolan, eastwood)
-}
 
-object TestMethods {
-  import TestData.directors
-
-  def directorsWithBackCatalogOfSize(numberOfFilms: Int): List[Director] =
-    ???
-
-  def directorsBornBefore(year: Int): List[Director] =
-    ???
-
-  def directorsBornBeforeWithBackCatalogOfSize(year: Int, numberOfFilms: Int): List[Director] =
-    ???
-
-  def namesOfAllFilmsByAllDirectors: List[String] =
-    ???
-
-  def namesOfFilmsByNolan: List[String] =
-    ???
-
-  def averageImdbRating: Double =
-    ???
-
-  def directorsSortedByAge(ascending: Boolean = true): List[Director] =
-    ???
-
-  def allFilmsSortedByImdb: List[Film] =
-    ???
-
-  def earliestFilmByAnyDirector: Option[Film] =
-    ???
-
-  def earliestFilmsByAllDirectors: Map[Director, Option[Film]] =
-    ???
+  val films = someGuy.films ++ mcTiernan.films ++ nolan.films ++ eastwood.films
 }
 
 object Main extends App {
-  import TestData.directors
+  import TestData._
   import TestMethods._
 
-  // println("""directorsWithBackCatalogOfSize(3)                 == """ + directorsWithBackCatalogOfSize(3))
-  // println("""directorsBornBefore(1970)                         == """ + directorsBornBefore(1970))
-  // println("""directorsBornBeforeWithBackCatalogOfSize(1970, 5) == """ + directorsBornBeforeWithBackCatalogOfSize(1970, 5))
-  // println("""namesOfFilmsByNolan                               == """ + namesOfFilmsByNolan)
-  // println("""namesOfAllFilmsByAllDirectors                     == """ + namesOfAllFilmsByAllDirectors)
-  // println("""averageImdbRating                                 == """ + averageImdbRating)
-  // println("""directorsSortedByAge(false)                       == """ + directorsSortedByAge(false))
-  // println("""allFilmsSortedByImdb                              == """ + allFilmsSortedByImdb)
-  // println("""earliestFilmsByAllDirectors                       == """ + earliestFilmsByAllDirectors)
-  // println("""earliestFilmByAnyDirector                         == """ + earliestFilmByAnyDirector)
+  // println(s"""directorsWithBackCatalogOfSize           == ${directorsWithBackCatalogOfSize(directors, 3)}""")
+  // println(s"""directorsBornBefore                      == ${directorsBornBefore(directors, 1970)}""")
+  // println(s"""directorsBornBeforeWithBackCatalogOfSize == ${directorsBornBeforeWithBackCatalogOfSize(directors, 1970, 5)}""")
+  // println(s"""namesOfAllFilms                          == ${namesOfAllFilms(directors)}""")
+  // println(s"""findDirectorWithName                     == ${findDirectorWithName(directors, "Nolan")}""")
+  // println(s"""namesOfFilmsByNolan                      == ${namesOfFilmsByNolan(directors)}""")
+  // println(s"""averageImdbRating                        == ${averageImdbRating(directors)}""")
+  // println(s"""directorsSortedByAge                     == ${directorsSortedByAge(directors, false)}""")
+  // println(s"""allFilmsSortedByImdb                     == ${allFilmsSortedByImdb(directors)}""")
+  // println(s"""earliestFilmByAnyDirector                == ${earliestFilmByAnyDirector(directors)}""")
+  // println(s"""earliestFilmsByAllDirectors              == ${earliestFilmsByAllDirectors(directors)}""")
 }
