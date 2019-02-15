@@ -5,9 +5,6 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.1" % Test
 )
 
-// SBT 1.0.1 has some noisy logging on the console:
-disablePlugins(BackgroundRunPlugin)
-
 scalacOptions ++= Seq(
   "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
   "-encoding", "utf-8",                // Specify character encoding used by source files.
