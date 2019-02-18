@@ -49,7 +49,7 @@ class FilmSpec extends FlatSpec with Matchers {
       d <- directors
       f  = d.films.sortBy(_.yearOfRelease).headOption
     } yield (d -> f)
-    actual should contain theSameElementsAs(expected)
+    actual.toList should contain theSameElementsAs(expected.toList)
   }
 
   "allFilmsSortedByImdb" should "produce the right result" in {

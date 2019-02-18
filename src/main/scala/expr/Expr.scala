@@ -14,7 +14,7 @@ object Expr {
 object Main extends App {
   import Expr._
 
-  println("""palindrome("taco") == ${palindrome("taco")}""")
-  println("""greet("Earthlings") == ${greet("Earthlings")}""")
-  println("""factorial(10) == ${factorial(10)}""")
+  println(s"""palindrome("taco") == ${palindrome("taco")}""")
+  println(s"""greet("Earthlings") == ${greet("Earthlings")}""")
+  println(s"""factorial(10) == ${factorial(10)}""")
 }
