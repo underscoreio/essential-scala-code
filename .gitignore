@@ -3,7 +3,6 @@
 # Edit at https://www.gitignore.io/?templates=scala,ensime,intellij,eclipse,sbt,sublimetext,emacs,vim
 
 ### Eclipse ###
-
 .metadata
 bin/
 tmp/
