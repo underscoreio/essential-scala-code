@@ -43,4 +43,49 @@ object Exercise6Films {
       .filter(f => f.imdbRating >= imdbRating)
       .map(f => f.name)
   }
+  
+  def main(args: Array[String]): Unit = {
+    import films.TestData._
+
+    println("nameOfFilm")
+    println(nameOfFilm(memento))
+    println(nameOfFilm(darkKnight))
+
+    println("filmsByDirector")
+    println(filmsByDirector(nolan))
+    println(filmsByDirector(eastwood))
+
+    println("directorsWithBackCatalogOfSize")
+    println(directorsWithBackCatalogOfSize(directors, 1))
+    println(directorsWithBackCatalogOfSize(directors, 4))
+    println(directorsWithBackCatalogOfSize(directors, 5))
+    println(directorsWithBackCatalogOfSize(Nil, 1))
+
+    println("directorsBornBefore")
+    println(directorsBornBefore(directors, 1930))
+    println(directorsBornBefore(directors, 1931))
+    println(directorsBornBefore(directors, 1951))
+    println(directorsBornBefore(directors, 1952))
+    println(directorsBornBefore(Nil, 2000))
+
+    println("directorsBornBeforeWithBackCatalogOfSize")
+    println(directorsBornBeforeWithBackCatalogOfSize(directors, 1931, 5))
+    println(directorsBornBeforeWithBackCatalogOfSize(directors, 1931, 6))
+    println(directorsBornBeforeWithBackCatalogOfSize(directors, 1930, 5))
+    println(directorsBornBeforeWithBackCatalogOfSize(Nil, 2000, 1))
+
+    println("namesOfFilms")
+    println(namesOfFilms(List(memento, darkKnight)))
+    println(namesOfFilms(Nil))
+
+    println("namesOfFilmsByDirector")
+    println(namesOfFilmsByDirector(nolan))
+    println(namesOfFilmsByDirector(eastwood))
+    println(namesOfFilmsByDirector(someGuy))
+
+    println("namesOfFilmsByDirectorScoringAtLeast")
+    println(namesOfFilmsByDirectorScoringAtLeast(nolan, 8.8))
+    println(namesOfFilmsByDirectorScoringAtLeast(nolan, 8.9))
+    println(namesOfFilmsByDirectorScoringAtLeast(someGuy, 0.0))
+  }
 }
