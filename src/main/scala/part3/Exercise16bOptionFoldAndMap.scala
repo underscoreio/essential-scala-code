@@ -23,7 +23,7 @@ object Exercise16bOptionFoldAndMap {
     ???
   }
 
-  def main(args: List[String]): Unit = {
+  def main(args: Array[String]): Unit = {
     import films.TestData._
 
     println("directorWithLastName")
