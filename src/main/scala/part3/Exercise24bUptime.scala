@@ -32,7 +32,7 @@ object Stats {
   }
 }
 
-object Exercise24Futures {
+object Exercise24bUptime {
   val host1 = "alice.example.com"
   val host2 = "bob.example.com"
   val host3 = "charlie.example.com"
