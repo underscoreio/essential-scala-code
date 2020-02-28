@@ -21,7 +21,7 @@ or downloaded on demand during compilation.
 
 If you don't have a particular preference for a Scala editor or IDE,
 we recommend you do the exercises for this course using
-the [Atom][atom] editor and a Linux or OS X terminal.
+the [Visual Studio Code][vscode] editor and a Linux or OS X terminal.
 See the instructions below to get started.
 
 If you want to use [Scala IDE][scala-ide] for Eclipse,
@@ -118,6 +118,7 @@ Complete the following steps outlined in Chapter 1 in the section entitled
 
 [course]: http://underscore.io/training/courses/essential-scala
 [atom]: https://atom.io
+[vscode]: https://code.visualstudio.com
 [scala-ide]: http://scala-ide.org
 [sbteclipse]: https://github.com/typesafehub/sbteclipse
 [intellij-idea]: https://www.jetbrains.com/idea
