@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise8aVecSpec extends FlatSpec with Matchers {
+class Exercise8aVecSpec extends AnyFlatSpec with Matchers {
   val vec1 = new Vec(3, 4)
   val vec2 = new Vec(5, 12)
 
@@ -13,7 +14,7 @@ class Exercise8aVecSpec extends FlatSpec with Matchers {
 
   "+" should "calculate the correct value" in {
     (vec1 + vec2) should equal(new Vec(8, 16))
-    (vec1 + vec2).length should equal(math.sqrt(8*8 + 16*16))
+    (vec1 + vec2).length should equal(math.sqrt(8 * 8 + 16 * 16))
   }
 
   "*" should "calculate the correct value" in {
@@ -32,11 +33,13 @@ class Exercise8aVecSpec extends FlatSpec with Matchers {
   }
 
   "longest(List[Vec])" should "calculate the correct value" in {
-    Vec.longest(List(
-      Vec.unitX,
-      Vec.unitX + Vec.unitY,
-      Vec.unitY
-    )) should equal(Vec.unitX + Vec.unitY)
+    Vec.longest(
+      List(
+        Vec.unitX,
+        Vec.unitX + Vec.unitY,
+        Vec.unitY
+      )
+    ) should equal(Vec.unitX + Vec.unitY)
 
     Vec.longest(Nil) should equal(Vec.zero)
   }

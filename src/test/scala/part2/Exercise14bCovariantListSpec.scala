@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise14bCovariantListSpec extends FlatSpec with Matchers {
+class Exercise14bCovariantListSpec extends AnyFlatSpec with Matchers {
   def pair[A](h: A, t: MyListB[A]): MyListB[A] =
     MyPairB(h, t)
 
@@ -28,14 +29,18 @@ class Exercise14bCovariantListSpec extends FlatSpec with Matchers {
   "map" should "work on integers" in {
     numbers1.map(n => n + 1) should equal(pair(2, pair(3, pair(4, nil))))
     numbers2.map(n => n + 3) should equal(pair(7, pair(8, pair(9, nil))))
-    strings1.map(s => s + "!") should equal(pair("foo!", pair("bar!", pair("baz!", nil))))
+    strings1.map(s => s + "!") should equal(
+      pair("foo!", pair("bar!", pair("baz!", nil)))
+    )
   }
 
   "append" should "work as expected" in {
     nil[Int].append(nil) should equal(nil[Int])
     nil[Int].append(numbers1) should equal(numbers1)
     numbers1.append(nil[Int]) should equal(numbers1)
-    numbers1.append(numbers2) should equal(pair(1, pair(2, pair(3, pair(4, pair(5, pair(6, nil)))))))
+    numbers1.append(numbers2) should equal(
+      pair(1, pair(2, pair(3, pair(4, pair(5, pair(6, nil))))))
+    )
   }
 
   "filter" should "work as expected" in {
@@ -45,7 +50,9 @@ class Exercise14bCovariantListSpec extends FlatSpec with Matchers {
     numbers2.filter(n => n > 0) should equal(numbers2)
     numbers2.filter(n => n < 0) should equal(nil)
     numbers2.filter(n => n > 4) should equal(pair(5, pair(6, nil)))
-    strings1.filter(s => s.contains('b')) should equal(pair("bar", pair("baz", nil)))
+    strings1.filter(s => s.contains('b')) should equal(
+      pair("bar", pair("baz", nil))
+    )
   }
 
   "reduce" should "accumulate from left to right" in {

@@ -1,9 +1,10 @@
 package part3
 
-import org.scalatest._
-import part2.{Num, Add, Mul, Div, Sqrt}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+import part2._
 
-class Exercise21EitherCalculatorSpec extends FlatSpec with Matchers {
+class Exercise21EitherCalculatorSpec extends AnyFlatSpec with Matchers {
   val calc1 = Add(Num(1.1), Mul(Num(2.2), Num(3.3)))
   val calc2 = Mul(Add(Num(1.1), Num(2.2)), Num(3.3))
   val calc3 = Div(Num(1.0), Num(0.0))

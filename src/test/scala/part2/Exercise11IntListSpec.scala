@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise11IntListSpec extends FlatSpec with Matchers {
+class Exercise11IntListSpec extends AnyFlatSpec with Matchers {
   def pair(h: Int, t: IntList): IntPair =
     IntPair(h, t)
 
@@ -39,13 +40,17 @@ class Exercise11IntListSpec extends FlatSpec with Matchers {
     nil.append(nil) should equal(nil)
     nil.append(numbers2) should equal(numbers2)
     numbers1.append(nil) should equal(numbers1)
-    numbers1.append(numbers2) should equal(pair(1, pair(2, pair(3, pair(4, pair(5, pair(6, nil)))))))
+    numbers1.append(numbers2) should equal(
+      pair(1, pair(2, pair(3, pair(4, pair(5, pair(6, nil))))))
+    )
   }
 
   "evensOnly" should "filter the list" in {
     numbers1.evensOnly should equal(pair(2, nil))
     numbers2.evensOnly should equal(pair(4, pair(6, nil)))
-    numbers1.append(numbers2).evensOnly should equal(pair(2, pair(4, pair(6, nil))))
+    numbers1.append(numbers2).evensOnly should equal(
+      pair(2, pair(4, pair(6, nil)))
+    )
     nil.evensOnly should equal(nil)
   }
 }

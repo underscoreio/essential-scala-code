@@ -1,8 +1,9 @@
 package part1
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise2ExpressionsSpec extends FlatSpec with Matchers {
+class Exercise2ExpressionsSpec extends AnyFlatSpec with Matchers {
   import Exercise2Expressions._
 
   "greeting" should "be nice and friendly" in {

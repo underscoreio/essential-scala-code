@@ -1,8 +1,9 @@
 package part3
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise18FlatMapSpec extends FlatSpec with Matchers {
+class Exercise18FlatMapSpec extends AnyFlatSpec with Matchers {
   import Exercise18FlatMap._
   import films.TestData._
 

@@ -1,8 +1,9 @@
 package part1
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise3bRecursionSpec extends FlatSpec with Matchers {
+class Exercise3bRecursionSpec extends AnyFlatSpec with Matchers {
   import Exercise3bRecursion._
 
   "contains" should "find elements in a list" in {

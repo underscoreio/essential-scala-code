@@ -3,7 +3,7 @@ package part2
 case class VecB(x: Double, y: Double) {
   // Tip -- use `math.sqrt(n)` to calculate a square root
   def length: Double = {
-    math.sqrt(x*x + y*y)
+    math.sqrt(x * x + y * y)
   }
 
   def +(that: VecB): VecB = {
@@ -26,7 +26,7 @@ object VecB {
     VecB(0, 1)
 
   def longest(v1: VecB, v2: VecB): VecB =
-    if(v1.length > v2.length) v1 else v2
+    if (v1.length > v2.length) v1 else v2
 
   // Harder
   def longest(vecs: List[VecB]): VecB =

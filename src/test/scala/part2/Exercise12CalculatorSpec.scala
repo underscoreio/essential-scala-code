@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise12CalculatorSpec extends FlatSpec with Matchers {
+class Exercise12CalculatorSpec extends AnyFlatSpec with Matchers {
   val calc1 = Add(Num(1.1), Mul(Num(2.2), Num(3.3)))
   val calc2 = Mul(Add(Num(1.1), Num(2.2)), Num(3.3))
   val calc3 = Div(Num(1.0), Num(0.0))
@@ -12,7 +13,7 @@ class Exercise12CalculatorSpec extends FlatSpec with Matchers {
     Sqrt(Add(Mul(Num(a), Num(a)), Mul(Num(b), Num(b))))
 
   def factorial(n: Int): Expr =
-    if(n < 1) Num(1) else Mul(Num(n), factorial(n - 1))
+    if (n < 1) Num(1) else Mul(Num(n), factorial(n - 1))
 
   "stringify" should "stringify an expression" in {
     calc1.stringify should equal("1.1 + 2.2 * 3.3")
@@ -29,7 +30,9 @@ class Exercise12CalculatorSpec extends FlatSpec with Matchers {
     IntCalculator.eval(calc1) should equal(1 + 2 * 3)
     IntCalculator.eval(calc2) should equal((1 + 2) * 3)
     intercept[ArithmeticException] { IntCalculator.eval(calc3) }
-    IntCalculator.eval(calc4) should equal(0) // Double.NaN.toInt is apparently 0!
+    IntCalculator.eval(calc4) should equal(
+      0
+    ) // Double.NaN.toInt is apparently 0!
   }
 
   "pythag" should "produce the correct form of expression" in {

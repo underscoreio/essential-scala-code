@@ -1,19 +1,22 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise15JsonSpec extends FlatSpec with Matchers {
+class Exercise15JsonSpec extends AnyFlatSpec with Matchers {
   val json1: JsValue =
     JsString("hello")
 
   // You may have to change this definition
   // depending on how you structured JsArray:
   val json2: JsValue =
-    JsArray(List(
-      JsNumber(1),
-      JsNumber(2),
-      JsNumber(3),
-    ))
+    JsArray(
+      List(
+        JsNumber(1),
+        JsNumber(2),
+        JsNumber(3)
+      )
+    )
 
   val json3: JsValue =
     JsNull
@@ -21,17 +24,21 @@ class Exercise15JsonSpec extends FlatSpec with Matchers {
   // You may have to change this definition
   // depending on how you structured JsObject:
   val json4: JsValue =
-    JsObject(List(
-      ("foo", json1),
-      ("bar", json2),
-      ("baz", json3),
-    ))
+    JsObject(
+      List(
+        ("foo", json1),
+        ("bar", json2),
+        ("baz", json3)
+      )
+    )
 
   "stringify" should "handle the examples" in {
     JsValue.stringify(json1) should equal(""""hello"""")
     JsValue.stringify(json2) should equal("""[1.0,2.0,3.0]""")
     JsValue.stringify(json3) should equal("""null""")
-    JsValue.stringify(json4) should equal("""{"foo":"hello","bar":[1.0,2.0,3.0],"baz":null}""")
+    JsValue.stringify(json4) should equal(
+      """{"foo":"hello","bar":[1.0,2.0,3.0],"baz":null}"""
+    )
   }
 
   // Harder: only do this if you have time:
@@ -48,9 +55,13 @@ class Exercise15JsonSpec extends FlatSpec with Matchers {
   // Harder: only do this if you have time:
   it should "escape object field names" in {
     val actual: String =
-      JsValue.stringify(JsObject(List(
-        (""""name"""", JsString(""""value""""))
-      )))
+      JsValue.stringify(
+        JsObject(
+          List(
+            (""""name"""", JsString(""""value""""))
+          )
+        )
+      )
 
     val expected: String =
       """{"\"name\"":"\"value\""}"""

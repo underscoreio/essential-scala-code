@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise8bVecCaseClassSpec extends FlatSpec with Matchers {
+class Exercise8bVecCaseClassSpec extends AnyFlatSpec with Matchers {
   val vec1 = VecB(3, 4)
   val vec2 = VecB(5, 12)
 
