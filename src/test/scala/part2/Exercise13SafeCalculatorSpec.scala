@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise13SafeCalculatorSpec extends FlatSpec with Matchers {
+class Exercise13SafeCalculatorSpec extends AnyFlatSpec with Matchers {
   // val calc1 = Add(Num(1.1), Mul(Num(2.2), Num(3.3)))
   // val calc2 = Mul(Add(Num(1.1), Num(2.2)), Num(3.3))
   // val calc3 = Div(Num(1.0), Num(0.0))

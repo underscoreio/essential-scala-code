@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise11IntListSpec extends FlatSpec with Matchers {
+class Exercise11IntListSpec extends AnyFlatSpec with Matchers {
   // def pair(h: Int, t: IntList): IntPair =
   //   IntPair(h, t)
 

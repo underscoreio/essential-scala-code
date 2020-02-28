@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise14aGenericListSpec extends FlatSpec with Matchers {
+class Exercise14aGenericListSpec extends AnyFlatSpec with Matchers {
   // def pair[A](h: A, t: MyList[A]): MyList[A] =
   //   MyPair(h, t)
 

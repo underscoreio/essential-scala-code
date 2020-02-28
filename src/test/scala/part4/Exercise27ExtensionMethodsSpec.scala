@@ -1,9 +1,10 @@
 package part4
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import part2._
 
-class Exercise27ExtensionMethodsSpec extends FlatSpec with Matchers {
+class Exercise27ExtensionMethodsSpec extends AnyFlatSpec with Matchers {
   // import Syntax._
 
   "toIntList" should "create an IntList" in {

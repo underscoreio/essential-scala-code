@@ -1,8 +1,9 @@
 package part2
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise9ColorAndShapeSpec extends FlatSpec with Matchers {
+class Exercise9ColorAndShapeSpec extends AnyFlatSpec with Matchers {
   // val shape1: Shape = Circle(10, Color(1, 1, 0))
   // val shape2: Shape = Rect(3, 5, Color(1, 0, 1))
 

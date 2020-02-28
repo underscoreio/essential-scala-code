@@ -1,9 +1,10 @@
 package part3
 
 import films.Director
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise16bOptionFoldAndMapSpec extends FlatSpec with Matchers {
+class Exercise16bOptionFoldAndMapSpec extends AnyFlatSpec with Matchers {
   import Exercise16bOptionFoldAndMap._
   import films.TestData._
 

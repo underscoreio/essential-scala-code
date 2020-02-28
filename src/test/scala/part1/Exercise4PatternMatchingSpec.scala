@@ -1,8 +1,9 @@
 package part1
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise4PatternMatchingSpec extends FlatSpec with Matchers {
+class Exercise4PatternMatchingSpec extends AnyFlatSpec with Matchers {
   import Exercise4PatternMatching._
 
   "contains" should "find elements in a list" in {

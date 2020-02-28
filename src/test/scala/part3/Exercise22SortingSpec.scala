@@ -1,8 +1,9 @@
 package part3
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise22SortingSpec extends FlatSpec with Matchers {
+class Exercise22SortingSpec extends AnyFlatSpec with Matchers {
   import Exercise22Sorting._
   import films.TestData._
 

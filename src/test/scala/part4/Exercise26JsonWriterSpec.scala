@@ -1,9 +1,10 @@
 package part4
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import part2._
 
-class Exercise26JsonWriterSpec extends FlatSpec with Matchers {
+class Exercise26JsonWriterSpec extends AnyFlatSpec with Matchers {
   // val alice  = Person("Alice", Email("alice@example.com"))
   // val bob    = Person("Bob", Email("bob@example.com"))
   // val people = List(alice, bob)

@@ -1,8 +1,9 @@
 package part4
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class Exercise25OrderingSpec extends FlatSpec with Matchers {
+class Exercise25OrderingSpec extends AnyFlatSpec with Matchers {
   // val email1 = Email("z@example.com")
   // val email2 = Email("y@example.com")
   // val email3 = Email("x@example.com")
