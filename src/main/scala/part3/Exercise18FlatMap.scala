@@ -24,7 +24,7 @@ object Exercise18FlatMap {
     directors.flatMap(d => d.films.map(f => s"Tonight only! ${f.name} by ${d.name}!"))
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     import films.TestData._
 
     println("filmsByDirector")

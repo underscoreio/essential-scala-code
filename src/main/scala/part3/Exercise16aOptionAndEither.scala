@@ -79,7 +79,7 @@ object Exercise16aOptionAndEither {
     }
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     import films.TestData._
 
     println("directorWithLastName")

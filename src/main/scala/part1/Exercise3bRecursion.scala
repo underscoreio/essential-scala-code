@@ -1,54 +1,44 @@
 package part1
 
-object Exercise3bRecursion {
+object Exercise3bRecursion:
   // Analogue for contains
-  def contains(numbers: List[Int], num: Int): Boolean = {
-    if(numbers.isEmpty) {
+  def contains(numbers: List[Int], num: Int): Boolean =
+    if numbers.isEmpty then
       false
-    } else if(numbers.head == num) {
+    else if numbers.head == num then
       true
-    } else {
+    else
       contains(numbers.tail, num)
-    }
-  }
 
   // Analogue for map
-  def doubleEachNumber(numbers: List[Int]): List[Int] = {
-    if(numbers.isEmpty) {
+  def doubleEachNumber(numbers: List[Int]): List[Int] =
+    if numbers.isEmpty then
       Nil
-    } else {
+    else
       numbers.head * 2 +: doubleEachNumber(numbers.tail)
-    }
-  }
 
   // Analogue for fold
-  def total(numbers: List[Int]): Int = {
-    if(numbers.isEmpty) {
+  def total(numbers: List[Int]): Int =
+    if numbers.isEmpty then
       0
-    } else {
+    else
       numbers.head + total(numbers.tail)
-    }
-  }
 
   // Analogue for range
-  def range(from: Int, to: Int): List[Int] = {
-    if(from > to) {
+  def range(from: Int, to: Int): List[Int] =
+    if from > to then
       Nil
-    } else {
+    else
       from +: range(from + 1, to)
-    }
-  }
 
   // Analogue for append
-  def append(a: List[Int], b: List[Int]): List[Int] = {
-    if(a.isEmpty) {
+  def append(a: List[Int], b: List[Int]): List[Int] =
+    if a.isEmpty then
       b
-    } else {
+    else
       a.head +: append(a.tail, b)
-    }
-  }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("contains")
     println(contains(List(1, 2, 3), 2))
     println(contains(List(1, 2, 3), 4))
@@ -68,5 +58,3 @@ object Exercise3bRecursion {
     println("append")
     println(append(List(1, 2, 3), List(4, 5, 6)))
     println(append(Nil, Nil))
-  }
-}

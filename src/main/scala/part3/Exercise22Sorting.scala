@@ -2,7 +2,7 @@ package part3
 
 import films.{Director, Film}
 
-object Exercise22Sorting {
+object Exercise22Sorting:
   def filmsSortedByImdb(films: List[Film]): List[Film] =
     films
       .sortBy(f => f.imdbRating)
@@ -30,7 +30,7 @@ object Exercise22Sorting {
     films.foldLeft(0.0)(_ + _.imdbRating) / films.length
   }
 
-  def main(args:Array[String]): Unit = {
+  def main(args:Array[String]): Unit =
     import films.TestData._
 
     println("filmsSortedByImdb")
@@ -53,5 +53,3 @@ object Exercise22Sorting {
 
     println("averageImdbRatingAcrossDirectors")
     println(averageImdbRatingAcrossDirectors(directors))
-  }
-}

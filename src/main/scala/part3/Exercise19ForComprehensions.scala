@@ -2,40 +2,35 @@ package part3
 
 import films.{Director, Film}
 
-object Exercise19ForComprehensions {
-  def filmsByDirector(director: Director): List[Film] = {
+object Exercise19ForComprehensions:
+  def filmsByDirector(director: Director): List[Film] =
     director.films
-  }
 
-  def namesOfFilmsByDirector(director: Director): List[String] = {
-    for {
+  def namesOfFilmsByDirector(director: Director): List[String] =
+    for
       f <- director.films
-    } yield f.name
-  }
+    yield f.name
 
-  def filmsByAllDirectors(directors: List[Director]): List[Film] = {
-    for {
+  def filmsByAllDirectors(directors: List[Director]): List[Film] =
+    for
       d <- directors
       f <- d.films
-    } yield f
-  }
+    yield f
 
-  def namesOfFilmsByAllDirectors(directors: List[Director]): List[String] = {
-    for {
+  def namesOfFilmsByAllDirectors(directors: List[Director]): List[String] =
+    for
       d <- directors
       f <- d.films
-    } yield f.name
-  }
+    yield f.name
 
   // Return a list of messages of the form "Tonight! <FILM> by <DIRECTOR>!"
-  def tonightOnlyMessages(directors: List[Director]): List[String] = {
-    for {
+  def tonightOnlyMessages(directors: List[Director]): List[String] =
+    for
       d <- directors
       f <- d.films
-    } yield s"Tonight only! ${f.name} by ${d.name}!"
-  }
+    yield s"Tonight only! ${f.name} by ${d.name}!"
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     import films.TestData._
 
     println("filmsByDirector")
@@ -58,5 +53,3 @@ object Exercise19ForComprehensions {
 
     println("tonightOnlyMessages")
     println(tonightOnlyMessages(List(nolan, mcTiernan)))
-  }
-}

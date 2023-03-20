@@ -1,6 +1,6 @@
 package part1
 
-object Example1Expressions {
+object Example1Expressions:
   //  _     _ _                 _
   // | |   (_) |_ ___ _ __ __ _| |___
   // | |   | | __/ _ \ '__/ _` | / __|
@@ -85,8 +85,8 @@ object Example1Expressions {
   // | |__| (_) | | | | (_| | | |_| | (_) | | | | (_| | \__ \
   //  \____\___/|_| |_|\__,_|_|\__|_|\___/|_| |_|\__,_|_|___/
 
-  val conditionals1 = if(Math.random < 0.5) "Alien" else "Predator"
-  val conditionals2 = if(Math.random < 0.5) "Alien" else 2001
+  val conditionals1 = if Math.random < 0.5 then "Alien" else "Predator"
+  val conditionals2 = if Math.random < 0.5 then "Alien" else 2001
 
   //  ____  _            _
   // | __ )| | ___   ___| | _____
@@ -94,16 +94,14 @@ object Example1Expressions {
   // | |_) | | (_) | (__|   <\__ \
   // |____/|_|\___/ \___|_|\_\___/
 
-  def blocks1() = {
+  def blocks1() =
     println("Calculating the answer...")
     6 * 7
-  }
 
-  val blocks2 = {
+  val blocks2 =
     val a = 1
     val b = 2
     a + b
-  }
 
   //  ____  _        _               _       _                        _       _   _
   // / ___|| |_ _ __(_)_ __   __ _  (_)_ __ | |_ ___ _ __ _ __   ___ | | __ _| |_(_) ___  _ __
@@ -178,6 +176,5 @@ object Example1Expressions {
   def puzzler5 = "3".toInt
   def puzzler6 = "cake".toInt
 
-  def puzzler7 = if(math.random < 0.5) "Hello" else null
-  def puzzler8 = if(math.random < 0.5) "Hello" else throw new Exception("Aaargh!")
-}
+  def puzzler7 = if math.random < 0.5 then "Hello" else null
+  def puzzler8 = if math.random < 0.5 then "Hello" else throw new Exception("Aaargh!")

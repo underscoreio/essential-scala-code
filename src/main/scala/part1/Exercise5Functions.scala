@@ -1,31 +1,25 @@
 package part1
 
-object Exercise5Functions {
-  def contains(numbers: List[Int], num: Int): Boolean = {
+object Exercise5Functions:
+  def contains(numbers: List[Int], num: Int): Boolean =
     numbers.contains(num)
-  }
 
-  def containsEvenNumbers(numbers: List[Int]): Boolean = {
+  def containsEvenNumbers(numbers: List[Int]): Boolean =
     numbers.exists(n => n % 2 == 0)
-  }
 
-  def evenNumbersOnly(numbers: List[Int]): List[Int] = {
+  def evenNumbersOnly(numbers: List[Int]): List[Int] =
     numbers.filter(n => n % 2 == 0)
-  }
 
-  def doubleEachNumber(numbers: List[Int]): List[Int] = {
+  def doubleEachNumber(numbers: List[Int]): List[Int] =
     numbers.map(n => n * 2)
-  }
 
-  def multiplyEachNumberBy(numbers: List[Int], num: Int): List[Int] = {
+  def multiplyEachNumberBy(numbers: List[Int], num: Int): List[Int] =
     numbers.map(n => n * num)
-  }
 
-  def evenNumbersOnlyDoubled(numbers: List[Int]): List[Int] = {
+  def evenNumbersOnlyDoubled(numbers: List[Int]): List[Int] =
     numbers.filter(n => n % 2 == 0).map(n => n * 2)
-  }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("contains")
     println(contains(List(1, 2, 3), 2))
     println(contains(List(1, 2, 3), 4))
@@ -52,5 +46,3 @@ object Exercise5Functions {
     println("evenNumbersOnlyDoubled")
     println(evenNumbersOnlyDoubled(List(1, 2, 3, 4)))
     println(evenNumbersOnlyDoubled(Nil))
-  }
-}

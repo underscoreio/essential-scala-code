@@ -1,50 +1,50 @@
 package part3
 
-import part2.{Expr, Num, Add, Sub, Mul, Div, Sqrt}
+import part2.Expr
 
-object OptionCalculator {
+object OptionCalculator:
+  import Expr._
+
   def eval(calc: Expr): Option[Double] =
-    calc match {
+    calc match
       case Num(a) =>
         Some(a)
 
       case Add(a, b) =>
-        for {
+        for
           a <- eval(a)
           b <- eval(b)
-        } yield a + b
+        yield a + b
 
       case Sub(a, b) =>
-        for {
+        for
           a <- eval(a)
           b <- eval(b)
-        } yield a - b
+        yield a - b
 
       case Mul(a, b) =>
-        for {
+        for
           a <- eval(a)
           b <- eval(b)
-        } yield a * b
+        yield a * b
 
       case Div(a, b) =>
-        for {
+        for
           a <- eval(a)
           b <- eval(b)
           r <- if(b == 0) None else Some(a / b)
-        } yield r
+        yield r
 
       case Sqrt(a) =>
-        for {
+        for
           a <- eval(a)
           r <- if(a < 0) None else Some(math.sqrt(a))
-        } yield r
-    }
-}
+        yield r
 
-object Exercise20OptionCalculator {
-  def main(args: Array[String]): Unit = {
+object Exercise20OptionCalculator:
+  import Expr._
+
+  def main(): Unit =
     println(OptionCalculator.eval(Add(Num(1), Num(2))))
     println(OptionCalculator.eval(Sqrt(Num(-1))))
     println(OptionCalculator.eval(Div(Num(1), Num(0))))
-  }
-}

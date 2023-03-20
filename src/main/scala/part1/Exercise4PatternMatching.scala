@@ -1,50 +1,37 @@
 package part1
 
-object Exercise4PatternMatching {
+object Exercise4PatternMatching:
   // Analogue for foreach
-  def greetNTimes(name: String, n: Int): Unit = {
-    n match {
+  def greetNTimes(name: String, n: Int): Unit =
+    n match
       case 0 => println(s"Hello $name!")
       case n => greetNTimes(name, n - 1)
-    }
-  }
 
   // Analogue for contains
-  def contains(numbers: List[Int], num: Int): Boolean = {
-    numbers match {
-      case Nil =>
-        false
-
-      case head :: tail =>
-        head == num || contains(tail, num)
-    }
-  }
+  def contains(numbers: List[Int], num: Int): Boolean =
+    numbers match
+      case Nil          => false
+      case head :: tail => head == num || contains(tail, num)
 
   // Analogue for map
-  def doubleEachNumber(numbers: List[Int]): List[Int] = {
-    numbers match {
+  def doubleEachNumber(numbers: List[Int]): List[Int] =
+    numbers match
       case Nil          => Nil
       case head :: tail => head * 2 :: doubleEachNumber(tail)
-    }
-  }
 
   // Analogue for fold
-  def total(numbers: List[Int]): Int = {
-    numbers match {
+  def total(numbers: List[Int]): Int =
+    numbers match
       case Nil          => 0
       case head :: tail => head + total(tail)
-    }
-  }
 
   // Analogue for append
-  def append(a: List[Int], b: List[Int]): List[Int] = {
-    a match {
+  def append(a: List[Int], b: List[Int]): List[Int] =
+    a match
       case Nil          => b
       case head :: tail => head :: append(tail, b)
-    }
-  }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("greetNTimes")
     println(greetNTimes("world", 5))
     println(greetNTimes("nope", 0))
@@ -65,5 +52,3 @@ object Exercise4PatternMatching {
     println("append")
     println(append(List(1, 2, 3), List(4, 5, 6)))
     println(append(Nil, Nil))
-  }
-}

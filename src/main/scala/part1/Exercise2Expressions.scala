@@ -1,24 +1,20 @@
 package part1
 
-object Exercise2Expressions {
-  def greet(name: String): Unit = {
+object Exercise2Expressions:
+  def greet(name: String): Unit =
     println(s"Hello $name!")
-  }
 
-  def greeting(name: String): String = {
+  def greeting(name: String): String =
     s"Hello $name!"
-  }
 
   // Hint - You can reverse a string with `string.reverse`
-  def palindrome(str: String): Boolean = {
+  def palindrome(str: String): Boolean =
     str == str.reverse
-  }
 
-  def factorial(n: Int): Int = {
-    if(n == 0 || n == 1) 1 else n * factorial(n - 1)
-  }
+  def factorial(n: Int): Int =
+    if n == 0 || n == 1 then 1 else n * factorial(n - 1)
 
-  def main(args: Array[String]): Unit = {
+  @main def main(): Unit =
     println("greet")
     println(greet("Earthlings"))
 
@@ -27,5 +23,3 @@ object Exercise2Expressions {
 
     println("factorial")
     println(factorial(10))
-  }
-}

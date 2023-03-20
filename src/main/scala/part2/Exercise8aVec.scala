@@ -1,32 +1,25 @@
 package part2
 
-class Vec(val x: Double, val y: Double) {
+class Vec(val x: Double, val y: Double):
   // Tip -- use `math.sqrt(n)` to calculate a square root
-  def length: Double = {
+  def length: Double =
     math.sqrt(x*x + y*y)
-  }
 
-  def +(that: Vec): Vec = {
+  def +(that: Vec): Vec =
     new Vec(this.x + that.x, this.y + that.y)
-  }
 
-  def *(m: Double): Vec = {
+  def *(m: Double): Vec =
     new Vec(x * m, y * m)
-  }
 
-  override def equals(that: Any): Boolean = {
-    that match {
+  override def equals(that: Any): Boolean =
+    that match
       case that: Vec => this.x == that.x && this.y == that.y
       case _         => false
-    }
-  }
 
-  override def toString: String = {
+  override def toString: String =
     s"Vec($x, $y)"
-  }
-}
 
-object Vec {
+object Vec:
   val zero: Vec =
     new Vec(0, 0)
 
@@ -37,22 +30,19 @@ object Vec {
     new Vec(0, 1)
 
   def longest(v1: Vec, v2: Vec): Vec =
-    if(v1.length > v2.length) v1 else v2
+    if v1.length > v2.length then v1 else v2
 
   // Harder
   def longest(vecs: List[Vec]): Vec =
-    vecs match {
+    vecs match
       case Nil          => Vec.zero
       case head :: tail => longest(head, longest(tail))
-    }
 
-}
-
-object Exercise8aVec {
+object Exercise8aVec:
   val vec1 = new Vec(3, 4)
   val vec2 = new Vec(5, 12)
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("length")
     println(vec1.length)
     println(vec2.length)
@@ -76,5 +66,3 @@ object Exercise8aVec {
     println("longest(List[Vec])")
     println(Vec.longest(List(Vec.unitX, Vec.unitX + Vec.unitY, Vec.unitY)))
     println(Vec.longest(Nil))
-  }
-}

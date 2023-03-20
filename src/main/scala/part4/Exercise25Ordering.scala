@@ -19,7 +19,7 @@ object Person {
     Ordering.by(p => p.email)
 }
 
-object Exercise25Ordering {
+object Exercise25Ordering:
   val email1 = Email("alice@cool.com")
   val email2 = Email("charlie@excellent.com")
   val email3 = Email("bob@awesome.com")
@@ -30,7 +30,7 @@ object Exercise25Ordering {
   val person3 = Person("Bob",     Email("bob@awesome.com"))
   val people = List(person1, person2, person3)
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("ordering.compare")
     println(Email.ordering.compare(email1, email2))
     println(Person.ordering.compare(person1, person2))
@@ -42,5 +42,3 @@ object Exercise25Ordering {
     println("non-standard orders")
     println(emails.sorted(Email.ordering.reverse))
     println(people.sorted(Person.orderingByEmail))
-  }
-}

@@ -26,7 +26,7 @@ object Counter {
 }
 
 object Example7Counter {
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     println("constructors")
     val counter1 = new Counter(10)
     val counter2 = new Counter(20)

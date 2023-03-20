@@ -41,7 +41,7 @@ object Exercise8bVec {
   val vec1 = VecB(3, 4)
   val vec2 = VecB(5, 12)
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     println("length")
     println(vec1.length)
     println(vec2.length)

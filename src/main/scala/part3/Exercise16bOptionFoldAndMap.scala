@@ -33,7 +33,7 @@ object Exercise16bOptionFoldAndMap {
       .fold[List[String]](Nil)(d => d.films.map(f => f.name))
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     import films.TestData._
 
     println("directorWithLastName")

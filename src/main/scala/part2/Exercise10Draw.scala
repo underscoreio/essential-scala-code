@@ -15,7 +15,7 @@ object Exercise10Draw {
     }
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     Canvas.show(500, 500, canvas => {
       draw(canvas, 100, 100, Circle(40, Color(1, 1, 0)))
       draw(canvas, 200, 200, Rect(80, 60, Color(1, 0 ,0)))

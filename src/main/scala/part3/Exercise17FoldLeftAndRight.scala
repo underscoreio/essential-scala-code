@@ -19,7 +19,7 @@ object Exercise17FoldLeftAndRight {
     items.foldRight[List[A]](Nil)((item, accum) => if(pred(item)) item :: accum else accum)
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     import films.TestData._
 
     println("totalImdbRating")

@@ -36,7 +36,7 @@ final case class Rect(width: Double, height: Double, color: Color) extends Shape
 }
 
 object Exercise9ColorAndShape {
-  def main(args: Array[String]): Unit = {
+  def main(): Unit = {
     println("color")
     println(Color.yellow)
     println(Color.magenta)

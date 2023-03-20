@@ -2,31 +2,22 @@ package part4
 
 import part2._
 
-object Syntax {
-  implicit class JsonOps[A](value: A) {
-    def toJson(implicit writer: JsonWriter[A]): JsValue =
-      writer.write(value)
-  }
+object Syntax:
+  extension [A](value: A) def toJson(implicit writer: JsonWriter[A]): JsValue =
+    writer.write(value)
 
-  implicit class IntListOps(list: List[Int]) {
-    def toIntList: IntList = {
-      list match {
-        case Nil          => IntNil()
-        case head :: tail => IntPair(head, tail.toIntList)
-      }
-    }
-  }
+  extension (list: List[Int]) def toIntList: IntList =
+    list match
+      case Nil          => IntList.Nil
+      case head :: tail => IntList.Pair(head, tail.toIntList)
 
-  implicit class TimesOps(num: Int) {
-    def times(func: Int => Unit): Unit =
-      (1 to num).foreach(func)
-  }
-}
+  extension (num: Int) def times(func: Int => Unit): Unit =
+    1.to(num).foreach(func)
 
-object Exercise27ExtensionMethods {
+object Exercise27ExtensionMethods:
   import Syntax._
 
-  def main(args: Array[String]): Unit = {
+  def main(): Unit =
     println("toJson")
     println(Person("Dave", Email("dave@example.com")).toJson)
 
@@ -37,5 +28,3 @@ object Exercise27ExtensionMethods {
     println("times")
     5.times(i => println(i * 10))
     3.times(i => println(i + "!"))
-  }
-}
